@@ -6,8 +6,7 @@ namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;initial catalog=testone;user id=sa;password=kist@123;");
-
+        SqlConnection con = new SqlConnection("Data Source = DESKTOP - Q6AJD9G\\SQLEXPRESS; Initial Catalog = testone; Integrated Security = True");
         public object sqlda { get; private set; }
 
         public Form1()
@@ -54,7 +53,7 @@ namespace WinFormsApp1
             try
             {
                 con.Open();
-                string query = "delete from student where name like 'p%'";//to delete the data starting from p
+                string query ="delete from student where id=10  ";//to delete the data starting from p
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("saved successfully");
@@ -78,7 +77,14 @@ namespace WinFormsApp1
 
         private void button5_Click(object sender, EventArgs e)
         {
-          dataGridView1.Rows.Add(textBox1.Text,textBox2.Text,textBox3.Text, textBox4.Text, textBox5.Text);
+          dataGridView1.Rows.Add(textBox2.Text,textBox3.Text, textBox4.Text, textBox5.Text);
+            con.Open();
+            string query = "insert into student" + "(name,address,contact,sdetail)" + 
+            " values('" + textBox2.Text + "','" +  textBox3.Text+ "','" + textBox4.Text +
+            "','" + textBox5.Text + "')";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -96,6 +102,22 @@ namespace WinFormsApp1
             Form2 obj = new Form2();
             obj.ShowDialog();
 
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            Form2 obj = new Form2();
+            obj.ShowDialog();
         }
     }
 }
