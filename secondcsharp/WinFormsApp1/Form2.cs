@@ -24,5 +24,29 @@ namespace WinFormsApp1
             dataGridView1.DataSource = dt;
             con.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow data = dataGridView1.CurrentRow;
+            string id = data.Cells["id"].Value.ToString();
+            string name = data.Cells["name"].Value.ToString();
+            string add = data.Cells["address"].Value.ToString();
+            string con = data.Cells["contact"].Value.ToString();
+            string detail = data.Cells["sdetail"].Value.ToString();
+
+            textBox1.Text = id;
+            textBox2.Text = name;
+            textBox3.Text = add;
+            textBox5.Text = con.ToString();
+            textBox6.Text = detail;
+
+
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

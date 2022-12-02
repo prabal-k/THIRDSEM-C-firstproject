@@ -77,7 +77,7 @@ namespace WinFormsApp1
 
         private void button5_Click(object sender, EventArgs e)
         {
-          dataGridView1.Rows.Add(textBox2.Text,textBox3.Text, textBox4.Text, textBox5.Text);
+          dataGridView1.Rows.Add(textBox1.Text,textBox2.Text,textBox3.Text, textBox4.Text, textBox5.Text);
             con.Open();
             string query = "insert into student" + "(name,address,contact,sdetail)" + 
             " values('" + textBox2.Text + "','" +  textBox3.Text+ "','" + textBox4.Text +
